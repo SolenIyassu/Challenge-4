@@ -9,3 +9,14 @@ border-radius: 20px 15px;
 background-color: black;
 /* display: none;   */
 }
+#submit {
+    display:block;
+    position: relative;
+    left: 150px;
+    display: none;
+}
+#next {
+    display:flex;
+    justify-content: left;
+    position: left;
+}
