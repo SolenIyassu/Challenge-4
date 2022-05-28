@@ -1,8 +1,18 @@
+* {
+    background-color: blue;
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+}
+#timer{
+    display: flex;
+    justify-content: center;
+}
+
 button {
-display:inline;
+display:flex;
 position:relative;
 right: -850px;
-color:blue;
+color:beige;
 border-radius: 20px 15px;
 }
 .button:hover {

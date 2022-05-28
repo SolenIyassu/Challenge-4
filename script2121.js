@@ -9,52 +9,96 @@ WHEN all questions are answered or the timer reaches 0
 THEN the game is over
 WHEN the game is over
 THEN I can save my initials and my score */
+console.log('linked')
 var start = document.querySelector ('#start')
-var input = document.querySelector("#answer2")
-var nextQuestion = document.querySelector("#next")
-start.addEventListerr(click,function(){
-    startButton = 'display: none;'
-    console.log("working")
-})
-var question = [
+var buttons = document.querySelector ('.buttons')
+var question = document.querySelector('#question')
+var nextQuestion = document.querySelector('#next')
+var Timer = document.querySelector('#timer')
+var answerChoice1= document.querySelector('#button1')
+var answerChoice2= document.querySelector('#button2')
+var answerChoice3= document.querySelector('#button3')
+var answerChoice4= document.querySelector('#button4')
+var timer = 60
+var scoreBoard = 0
+var submit = document.querySelector('#submit')
+var input = document.getElementById('input')
+var input = document.createElement('answerInput')
+input.FormData;
+// var answer = document.querySelector('#answer')
+var currentIndex = 0
+ 
+var questions = [
     {
-        Question1:"What does CSS stand for?",
-        choices: ["customer service and support", "College Scholarship Service Profile", "combat service support", "Cascading style sheet!"],
+        Question:'What does CSS stand for?',
+        choices: ['customer service and support', 'College Scholarship Service Profile', 'combat service support', 'Cascading style sheet!'],
         Answer: 3
     },
     {
-        Question2:"What language uses Appendchild?",
-        choices: ["JavaScript", "HTML", "jQuery", "SQL"],
+        Question:'What language uses appendChild?',
+        choices: ['JavaScript', 'HTML', 'jQuery', 'SQL'],
+        Anwer: 0
     },
     {  
-        Question3: "Css is combined by using, ____. ",
-        choices: ["Link", "script","input", "document"],
+        Question: 'Css is combined by using, ____. ',
+        choices: ['Link', 'script','input', 'document'],
         Answer: 0
     },
     {
-        Question4: "HTML is used for _____?",
-        Answer: 0
+        Question: 'HTML is used for _____?',
+        choices: ['hello','bye',],
+        Answer: [0]
     },
     {
-        Question5: "What language makes a page dynamic and functional?",
-        choices:["HTML", "SQL","Python", "Javascript"],
+        Question: 'What language makes a page dynamic and functional?',
+        choices:['HTML', 'SQL','Python', 'Javascript'],
         Answer: 3
     }      
 ]
+var input = document.createElement('form')
+input.setAttribute('type', 'text')
 
-startButton.addEventLister('click, function()')
+function timerFn() {
+    console.log ('timer')
+    var quizTimer = setInterval(function(){
+        if (timer === 0) {
+            clearInterval(quizTimer);
+        }
+        Timer.innerText = timer
+        console.log(timer)
+       timer--
+    },1000)
+}
+function gameOver() {
+    alert('Game over! Add your intials') + timer
+}
 
-    // document.getElementById("#start").onclick = () {
-    //     this.disabled = true;
-    // }
+start.addEventListener('click', function() {
+    quizTimer = 60
+    scoreBoard = 0
+    start.style.display ='none';
+    nextQuestion.style.diplay = 'block';
+    console.log('working')
+    timerFn()
+    renderQuestion()
+})
+function Continue(){
+    nextQuestion.style.diplay = 'block';
+    currentIndex ++;
+    console.log(currentIndex)
+}
 
-
-/* var timeInterval = setInterval(function () {
-    timeLeft--;
-    timeEl.textContent = timeLeft + 'seconds left'
-   
-    if (secondsLeft === 0){
-      clearInterval(timeInterval);
-      sendMessage("Are you ready to play again?");
-    }
-} */
+function renderQuestion(){
+    question.innerText = questions[currentIndex].Question
+    answerChoice1.innerText = questions[currentIndex].choices[0]
+    answerChoice2.innerText = questions[currentIndex].choices[1]
+    answerChoice3.innerText = questions[currentIndex].choices[2]
+    answerChoice4.innerText = questions[currentIndex].choices[3]
+    currentIndex
+    nextQuestion.addEventListener('click', Continue())
+    console.log(currentIndex)
+}
+function renderAnswer(){
+    Answer.interText = Answer[currentIndex].Answer
+    continue()
+}
